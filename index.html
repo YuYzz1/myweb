@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客 - 分享技术与生活</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">我的博客</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="archive.html" class="nav-link">归档</a>
+                <a href="tags.html" class="nav-link">标签</a>
+                <a href="about.html" class="nav-link">关于我</a>
+            </div>
+            <div class="nav-tools">
+                <button id="search-btn" class="tool-btn"><i class="fas fa-search"></i></button>
+                <button id="theme-btn" class="tool-btn"><i class="fas fa-moon"></i></button>
+                <button id="mobile-menu-btn" class="tool-btn mobile-only"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-link active">首页</a>
+            <a href="archive.html" class="mobile-link">归档</a>
+            <a href="tags.html" class="mobile-link">标签</a>
+            <a href="about.html" class="mobile-link">关于我</a>
+        </div>
+    </nav>
+
+    <!-- 搜索框（默认隐藏） -->
+    <div id="search-container" class="search-container hidden">
+        <div class="container">
+            <input type="text" id="search-input" placeholder="搜索文章标题或标签...">
+            <button id="close-search" class="tool-btn"><i class="fas fa-times"></i></button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container main-container">
+        <!-- 左侧文章列表 -->
+        <section class="post-list">
+            <h2 class="section-title">最新文章</h2>
+            <!-- 文章卡片1 -->
+            <article class="post-card">
+                <div class="post-cover">
+                    <img src="assets/images/post-cover.jpg" alt="文章封面">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> 2024-05-10</span>
+                        <span><i class="far fa-folder"></i> <a href="tags.html?tag=前端">前端</a></span>
+                    </div>
+                    <h3 class="post-title"><a href="post.html">HTML5+CSS3 响应式布局实战技巧</a></h3>
+                    <p class="post-excerpt">响应式布局是现代网页开发的核心要求，本文将分享5个实用技巧，帮助你快速构建适配多设备的网页，从媒体查询到弹性布局，再到网格系统的灵活运用...</p>
+                    <a href="post.html" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <!-- 文章卡片2 -->
+            <article class="post-card">
+                <div class="post-cover">
+                    <img src="assets/images/post-cover.jpg" alt="文章封面">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> 2024-04-28</span>
+                        <span><i class="far fa-folder"></i> <a href="tags.html?tag=JavaScript">JavaScript</a></span>
+                    </div>
+                    <h3 class="post-title"><a href="post.html">JavaScript 异步编程全解析：回调、Promise、Async/Await</a></h3>
+                    <p class="post-excerpt">异步编程是JavaScript的核心特性，本文将从基础的回调函数入手，逐步讲解Promise的原理与使用，最后深入Async/Await语法糖，帮你彻底理清异步流程...</p>
+                    <a href="post.html" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <!-- 文章卡片3 -->
+            <article class="post-card">
+                <div class="post-cover">
+                    <img src="assets/images/post-cover.jpg" alt="文章封面">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> 2024-04-15</span>
+                        <span><i class="far fa-folder"></i> <a href="tags.html?tag=工具推荐">工具推荐</a></span>
+                    </div>
+                    <h3 class="post-title"><a href="post.html">10个提高开发效率的VS Code插件，程序员必备</a></h3>
+                    <p class="post-excerpt">作为前端开发者，VS Code是日常工作的主力工具。本文精选10个实用插件，涵盖代码格式化、语法检查、Git管理、文档生成等场景，帮你大幅提升开发效率...</p>
+                    <a href="post.html" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <!-- 分页 -->
+            <div class="pagination">
+                <a href="#" class="page-btn prev-btn disabled"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-btn active">1</a>
+                <a href="#" class="page-btn">2</a>
+                <a href="#" class="page-btn">3</a>
+                <a href="#" class="page-btn next-btn"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </section>
+
+        <!-- 右侧侧边栏 -->
+        <aside class="sidebar">
+            <!-- 个人信息 -->
+            <div class="sidebar-widget">
+                <div class="author-info">
+                    <img src="assets/images/avatar.jpg" alt="个人头像" class="author-avatar">
+                    <h3 class="author-name">开发者小袁</h3>
+                    <p class="author-desc">前端开发工程师 | 技术分享者 | 热爱编程与生活</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-csdn"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-weixin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分类标签 -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">文章分类</h3>
+                <div class="tag-cloud">
+                    <a href="tags.html?tag=前端" class="tag">前端 <span class="tag-count">8</span></a>
+                    <a href="tags.html?tag=JavaScript" class="tag">JavaScript <span class="tag-count">5</span></a>
+                    <a href="tags.html?tag=CSS" class="tag">CSS <span class="tag-count">3</span></a>
+                    <a href="tags.html?tag=工具推荐" class="tag">工具推荐 <span class="tag-count">4</span></a>
+                    <a href="tags.html?tag=学习笔记" class="tag">学习笔记 <span class="tag-count">6</span></a>
+                </div>
+            </div>
+
+            <!-- 热门文章 -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门文章</h3>
+                <ul class="hot-posts">
+                    <li><a href="post.html">• 前端性能优化的10个实用方法</a></li>
+                    <li><a href="post.html">• 从零开始搭建Vue3+Vite项目</a></li>
+                    <li><a href="post.html">• CSS Grid 布局完全指南</a></li>
+                    <li><a href="post.html">• 如何写出可维护的JavaScript代码</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 我的个人博客. 保留所有权利.</p>
+                <p>基于 GitHub Pages 搭建 | 设计与开发 by 开发者小夏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

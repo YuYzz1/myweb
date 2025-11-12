@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5+CSS3 响应式布局实战技巧 - 我的个人博客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏（与首页一致） -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">我的博客</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="archive.html" class="nav-link">归档</a>
+                <a href="tags.html" class="nav-link">标签</a>
+                <a href="about.html" class="nav-link">关于我</a>
+            </div>
+            <div class="nav-tools">
+                <button id="search-btn" class="tool-btn"><i class="fas fa-search"></i></button>
+                <button id="theme-btn" class="tool-btn"><i class="fas fa-moon"></i></button>
+                <button id="mobile-menu-btn" class="tool-btn mobile-only"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-link">首页</a>
+            <a href="archive.html" class="mobile-link">归档</a>
+            <a href="tags.html" class="mobile-link">标签</a>
+            <a href="about.html" class="mobile-link">关于我</a>
+        </div>
+    </nav>
+
+    <!-- 搜索框（与首页一致） -->
+    <div id="search-container" class="search-container hidden">
+        <div class="container">
+            <input type="text" id="search-input" placeholder="搜索文章标题或标签...">
+            <button id="close-search" class="tool-btn"><i class="fas fa-times"></i></button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container main-container">
+        <section class="post-detail">
+            <!-- 文章头部 -->
+            <header class="post-header">
+                <h1 class="post-detail-title">HTML5+CSS3 响应式布局实战技巧</h1>
+                <div class="post-detail-meta">
+                    <span><i class="far fa-calendar"></i> 2024-05-10</span>
+                    <span><i class="far fa-folder"></i> 前端</span>
+                    <span><i class="far fa-user"></i> 开发者小夏</span>
+                </div>
+                <div class="post-detail-cover">
+                    <img src="assets/images/post-cover.jpg" alt="响应式布局封面图">
+                </div>
+            </header>
+
+            <!-- 文章内容 -->
+            <div class="post-body">
+                <p>响应式布局是现代网页开发的核心要求，它能让网站在不同设备（手机、平板、电脑）上自动适配屏幕尺寸，提供最佳的阅读体验。本文将分享5个实用技巧，帮助你快速构建适配多设备的网页。</p>
+
+                <h2>1. 使用媒体查询（Media Queries）</h2>
+                <p>媒体查询是响应式布局的基础，它允许你根据设备的屏幕尺寸应用不同的CSS样式。</p>
+                <pre><code>/* 屏幕宽度小于768px时的样式 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  .nav-menu {
+    display: none;
+  }
+}</code></pre>
+                <p>建议使用<strong>移动优先</strong>的策略：先编写移动端的基础样式，再通过媒体查询为更大的屏幕添加样式。</p>
+
+                <h2>2. 弹性布局（Flexbox）</h2>
+                <p>Flexbox是处理一维布局（行或列）的强大工具，非常适合实现响应式的导航栏、卡片布局等。</p>
+                <pre><code>.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* 自动换行 */
+  gap: 20px; /* 元素间距 */
+}
+
+.flex-item {
+  flex: 1 1 300px; /* 伸缩性： grow shrink basis */
+}</code></pre>
+                <p>通过<code>flex-wrap: wrap</code>，当屏幕空间不足时，项目会自动换行，避免溢出。</p>
+
+                <h2>3. 网格布局（CSS Grid）</h2>
+                <p>CSS Grid适用于二维布局（行和列），可以轻松创建复杂的网格结构，如相册、仪表盘等。</p>
+                <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}</code></pre>
+                <p><code>auto-fill</code>会自动根据屏幕宽度创建尽可能多的列，<code>minmax(250px, 1fr)</code>确保每列最小宽度为250px，最大宽度为1fr（平均分配剩余空间）。</p>
+
+                <h2>4. 响应式图片</h2>
+                <p>图片是导致网页在移动端显示异常的常见原因，以下是两种处理方式：</p>
+                <ol>
+                    <li>使用<code>max-width: 100%</code>确保图片不超过容器宽度：
+                        <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+                    </li>
+                    <li>使用<code>&lt;picture&gt;</code>元素为不同设备提供不同尺寸的图片：
+                        <pre><code>&lt;picture&gt;
+  &lt;source srcset="image-large.jpg" media="(min-width: 1024px)"&gt;
+  &lt;source srcset="image-medium.jpg" media="(min-width: 768px)"&gt;
+  &lt;img src="image-small.jpg" alt="响应式图片"&gt;
+&lt;/picture&gt;</code></pre>
+                    </li>
+                </ol>
+
+                <h2>5. 相对单位</h2>
+                <p>避免使用固定像素（px）作为尺寸单位，改用相对单位：</p>
+                <ul>
+                    <li><code>rem</code>：相对于根元素（html）的字体大小，适合设置字体、间距等。</li>
+                    <li><code>em</code>：相对于父元素的字体大小，适合嵌套元素的尺寸。</li>
+                    <li><code>vw/vh</code>：相对于视口宽度/高度的百分比，适合全屏元素。</li>
+                </ul>
+                <pre><code>html {
+  font-size: 16px; /* 基础字体大小 */
+}
+
+h1 {
+  font-size: 2rem; /* 32px */
+}
+
+.container {
+  width: 90vw; /* 视口宽度的90% */
+  margin: 0 auto;
+}</code></pre>
+
+                <h2>总结</h2>
+                <p>响应式布局的核心是“适配”，通过媒体查询、弹性布局、网格布局、响应式图片和相对单位的组合使用，你可以构建出既美观又实用的跨设备网站。记住，测试是关键——在不同设备和浏览器上验证你的布局，确保用户体验一致。</p>
+            </div>
+
+            <!-- 文章标签 -->
+            <div class="post-tags">
+                <span><i class="fas fa-tags"></i> 相关标签：</span>
+                <a href="tags.html?tag=前端" class="tag">前端</a>
+                <a href="tags.html?tag=CSS3" class="tag">CSS3</a>
+                <a href="tags.html?tag=响应式" class="tag">响应式</a>
+            </div>
+        </section>
+
+        <!-- 相关文章 -->
+        <section class="related-posts">
+            <h3 class="section-title">相关文章推荐</h3>
+            <div class="related-posts-list">
+                <article class="post-card">
+                    <div class="post-cover">
+                        <img src="assets/images/post-cover.jpg" alt="CSS Grid 布局">
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">CSS Grid 布局完全指南</a></h3>
+                        <div class="post-meta">
+                            <span>2024-03-10</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <div class="post-cover">
+                        <img src="assets/images/post-cover.jpg" alt="前端性能优化">
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">前端性能优化的10个实用方法</a></h3>
+                        <div class="post-meta">
+                            <span>2024-04-01</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <div class="post-cover">
+                        <img src="assets/images/post-cover.jpg" alt="Vue3+Vite项目">
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">从零开始搭建Vue3+Vite项目</a></h3>
+                        <div class="post-meta">
+                            <span>2024-03-20</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚（与首页一致） -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 我的个人博客. 保留所有权利.</p>
+                <p>基于 GitHub Pages 搭建 | 设计与开发 by 开发者小夏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

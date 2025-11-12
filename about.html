@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 我的个人博客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏和搜索框（与首页一致） -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">我的博客</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="archive.html" class="nav-link">归档</a>
+                <a href="tags.html" class="nav-link">标签</a>
+                <a href="about.html" class="nav-link active">关于我</a>
+            </div>
+            <div class="nav-tools">
+                <button id="search-btn" class="tool-btn"><i class="fas fa-search"></i></button>
+                <button id="theme-btn" class="tool-btn"><i class="fas fa-moon"></i></button>
+                <button id="mobile-menu-btn" class="tool-btn mobile-only"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-link">首页</a>
+            <a href="archive.html" class="mobile-link">归档</a>
+            <a href="tags.html" class="mobile-link">标签</a>
+            <a href="about.html" class="mobile-link active">关于我</a>
+        </div>
+    </nav>
+
+    <div id="search-container" class="search-container hidden">
+        <div class="container">
+            <input type="text" id="search-input" placeholder="搜索文章标题或标签...">
+            <button id="close-search" class="tool-btn"><i class="fas fa-times"></i></button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container">
+        <section class="about-page">
+            <header class="about-header">
+                <img src="assets/images/avatar.jpg" alt="个人头像" class="about-avatar">
+                <h2 class="about-name">开发者小夏</h2>
+                <p class="about-title">前端开发工程师 | 技术分享者</p>
+                <div class="about-social">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-csdn"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-weixin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </header>
+
+            <div class="about-section">
+                <h3 class="about-section-title">个人简介</h3>
+                <p class="about-bio">
+                    大家好！我是小夏，一名热爱技术的前端开发工程师，拥有3年Web开发经验。我专注于前端领域的学习与实践，擅长HTML5、CSS3、JavaScript、Vue、React等技术，热衷于探索前沿技术和最佳实践。
+                </p>
+                <p class="about-bio">
+                    我喜欢通过博客记录自己的学习心得和项目经验，希望能与更多开发者交流分享，共同成长。除了编程，我还喜欢阅读、跑步和旅行，相信多元化的爱好能给技术带来更多灵感。
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h3 class="about-section-title">技术栈</h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML5/CSS3</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Vue.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>TypeScript</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h3 class="about-section-title">博客声明</h3>
+                <p class="about-bio">
+                    本博客所有文章均为原创，版权归作者所有。欢迎转载，但请注明出处并保持文章完整性。文章中的观点仅代表个人，与任何公司或组织无关。
+                </p>
+                <p class="about-bio">
+                    如果您有任何问题或建议，欢迎通过社交媒体或邮箱与我联系，我会尽快回复。感谢您的访问与支持！
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 我的个人博客. 保留所有权利.</p>
+                <p>基于 GitHub Pages 搭建 | 设计与开发 by 开发者小夏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

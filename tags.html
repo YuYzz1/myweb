@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章标签 - 我的个人博客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏和搜索框（与首页一致） -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">我的博客</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="archive.html" class="nav-link">归档</a>
+                <a href="tags.html" class="nav-link active">标签</a>
+                <a href="about.html" class="nav-link">关于我</a>
+            </div>
+            <div class="nav-tools">
+                <button id="search-btn" class="tool-btn"><i class="fas fa-search"></i></button>
+                <button id="theme-btn" class="tool-btn"><i class="fas fa-moon"></i></button>
+                <button id="mobile-menu-btn" class="tool-btn mobile-only"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-link">首页</a>
+            <a href="archive.html" class="mobile-link">归档</a>
+            <a href="tags.html" class="mobile-link active">标签</a>
+            <a href="about.html" class="mobile-link">关于我</a>
+        </div>
+    </nav>
+
+    <div id="search-container" class="search-container hidden">
+        <div class="container">
+            <input type="text" id="search-input" placeholder="搜索文章标题或标签...">
+            <button id="close-search" class="tool-btn"><i class="fas fa-times"></i></button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container">
+        <section class="tags-page">
+            <h2 class="section-title">文章标签</h2>
+            <div class="tags-list">
+                <!-- 前端标签 -->
+                <div class="tag-item">
+                    <div class="tag-item-name">
+                        <span>前端</span>
+                        <span class="tag-item-count">5篇</span>
+                    </div>
+                    <div class="tag-posts">
+                        <a href="post.html">HTML5+CSS3 响应式布局实战技巧</a>
+                        <a href="post.html">JavaScript 异步编程全解析</a>
+                        <a href="post.html">前端性能优化的10个实用方法</a>
+                        <a href="post.html">从零开始搭建Vue3+Vite项目</a>
+                        <a href="post.html">CSS Grid 布局完全指南</a>
+                    </div>
+                </div>
+
+                <!-- JavaScript标签 -->
+                <div class="tag-item">
+                    <div class="tag-item-name">
+                        <span>JavaScript</span>
+                        <span class="tag-item-count">1篇</span>
+                    </div>
+                    <div class="tag-posts">
+                        <a href="post.html">JavaScript 异步编程全解析：回调、Promise、Async/Await</a>
+                    </div>
+                </div>
+
+                <!-- CSS3标签 -->
+                <div class="tag-item">
+                    <div class="tag-item-name">
+                        <span>CSS3</span>
+                        <span class="tag-item-count">2篇</span>
+                    </div>
+                    <div class="tag-posts">
+                        <a href="post.html">HTML5+CSS3 响应式布局实战技巧</a>
+                        <a href="post.html">CSS Grid 布局完全指南</a>
+                    </div>
+                </div>
+
+                <!-- 响应式标签 -->
+                <div class="tag-item">
+                    <div class="tag-item-name">
+                        <span>响应式</span>
+                        <span class="tag-item-count">1篇</span>
+                    </div>
+                    <div class="tag-posts">
+                        <a href="post.html">HTML5+CSS3 响应式布局实战技巧</a>
+                    </div>
+                </div>
+
+                <!-- 工具推荐标签 -->
+                <div class="tag-item">
+                    <div class="tag-item-name">
+                        <span>工具推荐</span>
+                        <span class="tag-item-count">1篇</span>
+                    </div>
+                    <div class="tag-posts">
+                        <a href="post.html">10个提高开发效率的VS Code插件，程序员必备</a>
+                    </div>
+                </div>
+
+                <!-- Vue3标签 -->
+                <div class="tag-item">
+                    <div class="tag-item-name">
+                        <span>Vue3</span>
+                        <span class="tag-item-count">1篇</span>
+                    </div>
+                    <div class="tag-posts">
+                        <a href="post.html">从零开始搭建Vue3+Vite项目</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 我的个人博客. 保留所有权利.</p>
+                <p>基于 GitHub Pages 搭建 | 设计与开发 by 开发者小夏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
